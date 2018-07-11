@@ -40,6 +40,30 @@ public class print1tomaxa_17
         }
         return overflow;
     }
+    public static void xx(int n )
+    {
+        if(n<=0)
+            return;
+        char[] number = new char[n];
+        for(int i =0;i<10;i++)
+        {
+            number[i]=(char) ('0'+i);
+            recursively(number,n,0);
+        }
+    }
+    public static void recursively(char[] number,int n,int index)
+    {
+        if(index==n-1)
+        {
+            printf(number);
+            return;
+        }
+        for(int i=0;i<10;++i)
+        {
+            number[index+1]=(char)(i+'0');
+            recursively(number,n,index+1);
+        }
+    }
     public static void printf(char[]s)
     {
         boolean begin = true;
@@ -57,6 +81,7 @@ public class print1tomaxa_17
     }
     public static void main(String[] args)
     {
-        System.out.println(p(3));
+        xx(3);
+        //System.out.println(xx(3));
     }
 }
