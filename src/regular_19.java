@@ -2,6 +2,7 @@ public class regular_19
 {
     public boolean match(char[] str,char[] pattern)
     {
+        System.out.println(str.length+"_____"+pattern.length);
         if(str==null || pattern ==null)
             return false;
         else
@@ -11,14 +12,29 @@ public class regular_19
     }
     public boolean matchcore(char[] str,int strindex,char[]pattern,int pindex)
     {
-        if(strindex==str.length-1 || pindex==pattern.length-1)
+        if(strindex>=str.length || pindex>=pattern.length)
             return true;
-        if(strindex!=str.length-1 && pindex==pattern.length-1)
+        if(strindex!=str.length && pindex>=pattern.length)
             return false;
-        if(pattern[pindex]=='*')
-        {
 
+        if(pindex+1<pattern.length && pattern[pindex+1]=='*')
+        {
+            if(pattern[pindex]==str[strindex] || (pattern[pindex]=='.' && strindex!=str.length))
+            {
+                return matchcore(str,strindex+1,pattern,pindex+2)||//出现1次，跳过*号
+                        matchcore(str,strindex+1,pattern,pindex)||//出现多次，pattern等着，str往后走可能多步
+                        matchcore(str,strindex,pattern,pindex+2);// 出现0次
+            }
+            else
+            {
+                return matchcore(str,strindex,pattern,pindex+2);//当前不等，但有*，装作无事发生
+            }
         }
+        if(pattern[pindex]==str[strindex] || (pattern[pindex]=='.'&& strindex!=str.length))
+        {
+            return matchcore(str,strindex+1,pattern,pindex+1);
+        }
+        return false;
     }
     public void Test(String name,String string,String patten,boolean expect)
     {
