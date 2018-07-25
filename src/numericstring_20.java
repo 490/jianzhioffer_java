@@ -43,6 +43,7 @@ public class numericstring_20
                 {
                     index++;
                     numeric = numeric && scanInteger();
+                    //        ↑保障e前面是数字   ↑保障e后面是整数
                 }
             }
 
