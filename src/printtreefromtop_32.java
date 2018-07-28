@@ -11,14 +11,30 @@ public class printtreefromtop_32
        if(t==null)
            return;
        q.add(t);
+       int nextlevelnodenum=0;
+       int tobeprint=1;
        while(q.size()>0)
        {
            treenode node = q.poll();
-           System.out.println(node.value);
+           System.out.print(node.value);
            if(node.left!=null)
+           {
+               nextlevelnodenum++;
                q.add(node.left);
+           }
            if(node.right!=null)
+           {
+               nextlevelnodenum++;
                q.add(node.right);
+           }
+           tobeprint--;
+           System.out.println("\n__"+tobeprint);
+           if(tobeprint==0)
+           {
+               System.out.println();
+               tobeprint=nextlevelnodenum;
+               nextlevelnodenum=0;
+           }
        }
 
     }
