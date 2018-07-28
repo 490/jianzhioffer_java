@@ -41,6 +41,6 @@ public class pathintree_34
 
         t.connectTreeNode(t1,t2,t3);
         t.connectTreeNode(t2,t4,t5);
-        h.findpath(t1,22);
+        h.findpath(t1,10);
     }
 }
