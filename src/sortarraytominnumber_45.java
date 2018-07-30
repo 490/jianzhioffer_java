@@ -55,7 +55,7 @@ public class sortarraytominnumber_45
     public static void main(String[] args)
     {
         sortarraytominnumber_45 s = new sortarraytominnumber_45();
-        int[] a ={3,32,321};
+        int[] a ={3,312,32,31,321};
         s.printMin(a);
     }
 }
