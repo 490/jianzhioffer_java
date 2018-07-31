@@ -1,9 +1,12 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class longstrwithoutdup_48
 {
 
-    public int find(String str)
+    public int find(String s)
     {
-        int curlen = 0;
+       /* int curlen = 0;
         int maxlen = 0;
         int start = 0;
         int[] pos = new int[26];
@@ -28,7 +31,31 @@ public class longstrwithoutdup_48
                 maxlen = curlen;
         }
         System.out.println(str.substring(start-1,start+maxlen-1));
-        return maxlen;
+        return maxlen;*/
+        if(s.length()==0){
+            return 0;
+        }
+        int maxLength=1;
+        List<Character> list=new ArrayList<Character>();
+        list.add(s.charAt(0));
+        for(int i=1;i<s.length();i++)
+        {
+            if(list.contains(s.charAt(i)))
+            {
+                int index=list.indexOf(s.charAt(i));
+                list=list.subList(index+1, list.size());
+                list.add(s.charAt(i));
+//				System.out.println(list);
+                maxLength=Math.max(maxLength, list.size());
+            }else
+                {
+                list.add(s.charAt(i));
+                maxLength=Math.max(maxLength, list.size());
+            }
+        }
+        System.out.println(list);
+        return maxLength;
+
     }
     public static void main(String[] args)
     {
