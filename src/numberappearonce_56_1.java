@@ -13,8 +13,8 @@ public class numberappearonce_56_1
         int num1 = 0,num2 = 0;
         for(int i =0;i < len;i++)
         {
-            if(isbit1(data[i],indexof1))
-                num1 ^= data[i];
+            if(isbit1(data[i],indexof1))//根据这位是不是1分为两个数组
+                num1 ^= data[i];//把第一个数组全部异或掉，只剩一个
             else
                 num2 ^= data[i];
         }
