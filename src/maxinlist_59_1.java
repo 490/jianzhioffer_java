@@ -15,15 +15,15 @@ public class maxinlist_59_1
         int begin;
         for(int i = 0; i < n.length;i++)
         {
-            begin = i-size+1;
+            begin = i-size+1;//说明要到窗口大小才为0
             if(deque.isEmpty())
                 deque.add(i);
-            else if(begin > deque.peekFirst())
+            else if(begin > deque.peekFirst())//当前元素下标 > deque第一个下标 + 窗口大小。
                 deque.pollFirst();
-            while(!deque.isEmpty() && n[i]>n[deque.peekLast()])
-                deque.pollLast();
+            while(!deque.isEmpty() && n[i]>n[deque.peekLast()])//数组当前处理的元素 > deque里最后一个，则把最后一个踢掉。
+                deque.pollLast();//一直循环搞，因为deque只放最大值
             deque.add(i);
-            if(begin >= 0)
+            if(begin >= 0)//窗口张开了，可以往里放东西了。
                 list.add(n[deque.peekFirst()]);
         }
         return list;
