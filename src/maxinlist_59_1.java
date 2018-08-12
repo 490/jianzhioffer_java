@@ -7,7 +7,7 @@ public class maxinlist_59_1
     static int[] n = {2,3,4,2,6,2,5,1};
     public ArrayList<Integer> maxinwindow(int size)
     {
-        int nsize= n.length;
+    /*    int nsize= n.length;
         ArrayList<Integer> list = new ArrayList<>();
         if(n == null || size < 1 || n.length <size)
             return list;
@@ -26,6 +26,27 @@ public class maxinlist_59_1
             if(begin >= 0)//窗口张开了，可以往里放东西了。
                 list.add(n[deque.peekFirst()]);
         }
+        return list;*/
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayDeque<Integer> deque = new ArrayDeque<>();
+        int nsize = n.length;
+        if(size < 1 || nsize <size || n==null)
+            return list;
+        for(int i = 0; i < nsize;i++)
+        {
+            int begin = i-size+1;
+            if(deque.isEmpty())
+                deque.add(i);
+            else if(begin > deque.peekFirst())
+                deque.pollFirst();
+            while(!deque.isEmpty() && n[i]>n[deque.peekLast()])
+                deque.pollLast();
+            deque.add(i);
+            if(begin>=0)
+                list.add(n[deque.peekFirst()]);
+        }
+
+
         return list;
     }
     public static void main(String[] args)
