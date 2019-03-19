@@ -25,19 +25,19 @@ public class BINARY_TREE
     public void printTreeNode(BINARY_TREE node)
     {
         if(node != null)
-        {
-            System.out.print("root:"+node.value+"\t");
-            if(node.left != null)
-                System.out.print("left:"+node.left.value+"\t");
-            else
-                System.out.print("left:X\t");
-            if(node.right != null)
-                System.out.print("right:"+node.right.value+"\t");
-            else
-                System.out.print("right:X\t");
-        }
+    {
+        System.out.print("root:"+node.value+"\t");
+        if(node.left != null)
+            System.out.print("left:"+node.left.value+"\t");
+        else
+            System.out.print("left:X\t");
+        if(node.right != null)
+            System.out.print("right:"+node.right.value+"\t");
+        else
+            System.out.print("right:X\t");
+    }
         //else
-          //  System.out.print("X");
+        //  System.out.print("X");
         System.out.println();
     }
     public void printTree(BINARY_TREE root)
