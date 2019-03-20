@@ -5,9 +5,10 @@ package secondtime;
  */
 public class b_15_1inbinary
 {
-    public int count(long n)
+    public int count(int n)
     {
-        System.out.println("n="+n);
+        return Integer.bitCount(n);
+       /* System.out.println("n="+n);
         int num = 1;
         int count  = 0;
         if(n<0)
@@ -20,11 +21,11 @@ public class b_15_1inbinary
                 count ++;
             num = num<<1;
         }
-        return count;
+        return count;*/
     }
     public static void main(String[] args) {
         b_15_1inbinary b_15_1inbinary = new b_15_1inbinary();
-        System.out.println(b_15_1inbinary.count(0x80000000L));
+        System.out.println(b_15_1inbinary.count(0xffffffff));
 
     }
 }
