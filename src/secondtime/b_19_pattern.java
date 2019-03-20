@@ -24,9 +24,28 @@ public class b_19_pattern
         //pattern有下一位且下一位是*
         if(pindex+1 < pattern.length && pattern[pindex+1] == '*')
         {
-
+            //当前位匹配了，或者当前pattern是万能符，并且当前str没到结尾
+            //aac.*
+            //aacbb
+            if(pattern[pindex] == str[sindex] || str.length!=sindex && pattern[pindex] == '.')
+            {
+                return core(str,sindex+1,pattern,pindex+2)||//出现1次，相当于跳过*号
+                        core(str,sindex+1,pattern,pindex)||//出现多次，pattern不动，str走多步，一个*匹配多个
+                        //abcde
+                        //a*abcde
+                        core(str,sindex,pattern,pindex+2);// 匹配上了，但是很多余，想使其为出现0次
+            }else {
+                //aabbb
+                //aac*b
+                return core(str,sindex,pattern,pindex+2);//当前不等，但有*，装作无事发生,此时*的作用是出现0次
+            }
         }
-
+        //下一位不是*
+        if(pattern[pindex]==str[sindex] || (pattern[pindex]=='.'&& sindex!=str.length))
+        {
+            return core(str,sindex+1,pattern,pindex+1);
+        }
+        return false;
 
 
     }
