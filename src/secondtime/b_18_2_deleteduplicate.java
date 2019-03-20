@@ -18,6 +18,8 @@ public class b_18_2_deleteduplicate
             }
             return delete(next);
         }else{
+            //如果没重复，则保留这个head，使其next指向head.next的测试返回结果。
+            //然后以head.next作为head开始新的检验。
             head.next = delete(head.next);
             return head;
         }
