@@ -36,6 +36,6 @@ public class numberof1_15
     }
     public static void main(String[] args)
     {
-        System.out.println(sum(0x80000000));
+        System.out.println(sum(0x7FFFFFFF));
     }
 }
