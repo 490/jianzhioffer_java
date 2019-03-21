@@ -70,7 +70,7 @@ public class entrynodeinlist_23
         list.connect(p5,p6);
         list.connect(p6,p7);
         list.connect(p7,p8);
-        list.connect(p8,p8);
+        list.connect(p8,p7);
         System.out.println(e.entry(p1).value);
     }
 }

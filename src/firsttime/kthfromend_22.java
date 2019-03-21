@@ -45,6 +45,6 @@ public class kthfromend_22
         list.connect(p3,p4);
         list.connect(p4,p5);
         list.connect(p5,p6);
-        k.find(p1,8);
+        k.find(p1,3);
     }
 }
